@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('starred_files', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('file_id')->constrained('files')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
         });
     }
 
