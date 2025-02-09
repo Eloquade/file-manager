@@ -6,8 +6,9 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/vue3';
-import Navigation from '@/Components/Navigation.vue';
-import SearchForm from '@/Components/SearchForm.vue';
+import Navigation from '@/Components/app/Navigation.vue';
+import SearchForm from '@/Components/app/SearchForm.vue';
+import UserSettingsDropdown from '@/Components/app/UserSettingsDropdown.vue';
 
 const showingNavigationDropdown = ref(false);
 </script>
@@ -18,6 +19,7 @@ const showingNavigationDropdown = ref(false);
         <main class="flex flex-col flex-1 px-4 overflow-hidden">
             <div class="flex item-center justify-between w-full">
                 <SearchForm/>
+                <UserSettingsDropdown/>
             </div>
 
         </main>
