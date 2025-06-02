@@ -2,6 +2,7 @@
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
+import { router } from "@inertiajs/vue3";
 </script>
 
 <template>
@@ -44,7 +45,7 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
                     </MenuItem>
                     <MenuItem v-slot="{ active }">
                         <ResponsiveNavLink
-                            :href="route('logout')"
+                            :href="router.post(route('logout'))"
                             :class="[ 
                                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                                 'block px-4 py-2 text-sm'

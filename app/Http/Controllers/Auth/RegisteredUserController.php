@@ -52,6 +52,6 @@ class RegisteredUserController extends Controller
         $file->is_folder = 1;
         $file->makeRoot()->save();    
 
-        return redirect(route('my-files', absolute: false));
+        return redirect(route('/my-files', absolute: false));
     }
 }
