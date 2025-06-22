@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
             ->where('folder', '(.*)')
             ->name('myFiles');
         Route::post('/folder/create', 'createFolder')->name('folder.create');
+        Route::post('/file', 'store')->name('file.store');
     });
     // Profile routes
     Route::controller(ProfileController::class)->group(function () {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreFileRequest;
 use App\Http\Requests\StoreFolderRequest;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -60,6 +61,26 @@ class FileController extends Controller
         $file->created_by = Auth::id();
     }
 
+    public function store(StoreFileRequest $request)
+    {
+        $data = $request->validated();
+        $parent = $request->parent;
+        $user = $request->id;
+        $fileTree = $request->file_tree;
+        
+        if($parent){
+            $parent = $this->getRoot();
+        }
+
+        if(!empty($fileTree)){
+            $this->saveFileTree($fileTree, $parent, $user);
+        }
+        else{
+            
+        }
+        
+    }
+    
     private function getRoot(): File
     {
         return File::query()->whereIsRoot()->where('created_by', Auth::id())->firstOrFail();

@@ -3,27 +3,29 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\File;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Eloquent\Builder;
-
+use Illuminate\Validation\Rule;
+use Illuminate\Database\Query\Builder;
+use App\Models\File;
 
 class ParentIdBaseRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * The parent folder instance (if applicable).
      */
     public ?File $parent = null;
 
+    /**
+     * Determine if the user is authorized to make this request.
+     */
     public function authorize(): bool
     {
         $this->parent = File::query()
             ->where('id', $this->input('parent_id'))
             ->first();
-        
+
+        // If parent exists, ensure the user owns it
         if ($this->parent && !$this->parent->isOwnedBy(Auth::id())) {
-            
             return false;
         }
 
@@ -39,14 +41,11 @@ class ParentIdBaseRequest extends FormRequest
     {
         return [
             'parent_id' => [
-                Rule::exists(File::class, 'id')->where(function(Builder $query) {
-                  return $query
-                  ->where('is_folder','=',1)
-                  ->where('created_by','=', Auth::id());
-
-                  
-                })
-            ]
+                Rule::exists('files', 'id')->where(function (Builder $query) {
+                    $query->where('is_folder', 1)
+                          ->where('created_by', Auth::id());
+                }),
+            ],
         ];
     }
 }

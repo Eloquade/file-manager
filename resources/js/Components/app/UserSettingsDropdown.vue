@@ -1,8 +1,21 @@
 <script setup>
+// uses (imports)
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
 import { router } from "@inertiajs/vue3";
+
+// refs
+// (none in this file, but if you had refs, put them here)
+
+// props & emits
+// (none in this file, but if you had defineProps/defineEmits, put them here)
+
+// computed
+// (none in this file, but if you had computed properties, put them here)
+
+// methods
+// (none in this file, but if you had methods, put them here)
 </script>
 
 <template>

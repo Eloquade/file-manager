@@ -1,4 +1,5 @@
 <script setup>
+// uses (imports)
 import { ref } from "vue";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
@@ -6,9 +7,17 @@ import CreateFolderModal from "./CreateFolderModal.vue";
 import FileUploadMenuItem from "./FileUploadMenuItem.vue";
 import FolderUploadMenuItem from "./FolderUploadMenuItem.vue";
 
+// refs
 const isOpen = ref(false);
 const CreateFolderModalShow = ref(false);
 
+// props & emits
+// (none in this file, but if you had defineProps/defineEmits, put them here)
+
+// computed
+// (none in this file, but if you had computed properties, put them here)
+
+// methods
 function showCreateFolderModal() {
     CreateFolderModalShow.value = true;
 }

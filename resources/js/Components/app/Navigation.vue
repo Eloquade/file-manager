@@ -1,8 +1,21 @@
 <script setup>
+// uses (imports)
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import { Link } from '@inertiajs/vue3';
 import CreateDropdown from '@/Components/app/CreateDropdown.vue';
 import NavLink from '@/Components/NavLink.vue';
+
+// refs
+// (none in this file, but if you had refs, put them here)
+
+// props & emits
+// (none in this file, but if you had defineProps/defineEmits, put them here)
+
+// computed
+// (none in this file, but if you had computed properties, put them here)
+
+// methods
+// (none in this file, but if you had methods, put them here)
 </script>
 
 <template>

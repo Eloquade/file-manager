@@ -1,4 +1,5 @@
 <script setup>
+// uses (imports)
 import { nextTick, ref } from "vue";
 import Modal from "@/Components/Modal.vue";
 import InputLabel from "../InputLabel.vue";
@@ -9,14 +10,20 @@ import SecondaryButton from "../SecondaryButton.vue";
 import PrimaryButton from "../PrimaryButton.vue";
 import { usePage } from "@inertiajs/vue3";
 
+// refs
 const emit = defineEmits(["update:modelValue"]);
 const folderNameInput = ref(null);
+
+// props & emits
 const { modelValue } = defineProps({
     modelValue: Boolean,
 });
 
-const page = usePage();
+// computed
+// (none in this file, but if you had computed properties, put them here)
 
+// methods
+const page = usePage();
 const form = useForm({
     name: "",
     parent_id: null,
@@ -55,7 +62,6 @@ function onShow() {
         folderNameInput.value.focus()
     );
 }
-
 
 </script>
 

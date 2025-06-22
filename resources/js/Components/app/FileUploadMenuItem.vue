@@ -1,8 +1,18 @@
 <script setup>
+// uses (imports)
 import { MenuItem } from '@headlessui/vue';
 import { emitter, FILE_UPLOAD_STARTED } from '../../event-bus';
 
+// refs
+// (none in this file, but if you had refs, put them here)
 
+// props & emits
+// (none in this file, but if you had defineProps/defineEmits, put them here)
+
+// computed
+// (none in this file, but if you had computed properties, put them here)
+
+// methods
 function onChange(event) {
     const files = event.target.files;
     emitter.emit(FILE_UPLOAD_STARTED, files);
